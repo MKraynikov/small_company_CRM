@@ -1,0 +1,31 @@
+LOCALE_PATH = ['locale']
+
+LANGUAGE_CODE = "ru-RU"
+
+TIME_ZONE = "Europe/Moscow"
+
+USE_I18N = True
+
+USE_TZ = True
+
+NUMBER_GROUPING = 3
+
+THOUSAND_SEPARATOR = " "
+
+USE_THOUSAND_SEPARATOR = True
+
+SHORT_DATE_FORMAT = "j.M.Y"
+
+SHORT_DATETIME_FORMAT = "j.M.Y H:i:s"
+
+DATE_FORMAT = "j E Y"
+
+DATETIME_FORMAT = "j E Y H:i:s"
+
+TIME_FORMAT = "H:i:s"
+
+DATE_INPUT_FORMATS = ["%d.%m.%Y"]
+
+DATETIME_INPUT_FORMATS = ["%d.%m.%Y %H:%M:%S"]
+
+FIRST_DAY_OF_WEEK = 1

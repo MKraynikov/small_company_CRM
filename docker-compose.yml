@@ -14,7 +14,7 @@ services:
     networks:
       - "backend-data"
 
-  scc_admin:
+  admin_backend:
     build: ./admin
     command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     expose:
@@ -27,7 +27,7 @@ services:
     networks:
       - "backend-data"
 
-  scc_api:
+  api_backend:
     build: ./backend
     expose:
       - 8080

@@ -52,3 +52,5 @@ COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
 USER app
+
+ENTRYPOINT ["/home/app/web/start_admin_service.sh"]
