@@ -51,3 +51,5 @@ COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
 USER app
+
+CMD ["gunicorn", "main:app", "--bind", "0.0.0.0:8080", "-k", "uvicorn.workers.UvicornWorker"]
