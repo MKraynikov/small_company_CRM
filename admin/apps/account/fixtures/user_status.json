@@ -1,0 +1,47 @@
+[
+  {
+    "model": "account.UserStatus",
+    "id": 1,
+    "fields": {
+      "status": "active",
+      "title": "Активный",
+      "description": "Данные пользователи не имеют ограничений на действия."
+    }
+  },
+  {
+    "model": "account.UserStatus",
+    "id": 2,
+    "fields": {
+      "status": "archive",
+      "title": "Архивный",
+      "description": "Пользователь убран в архив. Действия не доступны."
+    }
+  },
+  {
+    "model": "account.UserStatus",
+    "id": 3,
+    "fields": {
+      "status": "suspended",
+      "title": "Приостановлен",
+      "description": "Действия пользователя приостановлены."
+    }
+  },
+  {
+    "model": "account.UserStatus",
+    "id": 4,
+    "fields": {
+      "status": "blocked",
+      "title": "Заблокирован",
+      "description": "Пользователь заблокирован."
+    }
+  },
+  {
+    "model": "account.UserStatus",
+    "id": 5,
+    "fields": {
+      "status": "deleted",
+      "title": "Удален",
+      "description": "Пользователь удалён."
+    }
+  }
+]

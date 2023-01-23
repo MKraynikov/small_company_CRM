@@ -6,6 +6,7 @@ services:
     image: "postgres:15-alpine"
     restart: on-failure
     volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - db_data:/var/lib/postgresql/data/
     env_file:
       - .env
