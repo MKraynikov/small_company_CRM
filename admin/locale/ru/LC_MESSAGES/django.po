@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-24 22:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/account/admin.py:24 apps/account/admin.py:47 apps/account/admin.py:89
+msgid "-not filled-"
+msgstr "-не заполнено-"
+
+#: apps/account/apps.py:8
+msgid "User Account Management"
+msgstr "Управление аккаунтами пользователей"
+
+#: apps/account/models.py:26
+msgid "User status"
+msgstr "Статус пользователя"
+
+#: apps/account/models.py:27
+msgid "User statuses"
+msgstr "Статусы пользователей"
+
+#: apps/account/models.py:32
+msgid "Status"
+msgstr "Статус"
+
+#: apps/account/models.py:33
+msgid "User status up to 50 characters"
+msgstr "Статус пользователя до 50 символов"
+
+#: apps/account/models.py:37 apps/account/models.py:101
+msgid "Description"
+msgstr "Описание"
+
+#: apps/account/models.py:38
+msgid "User status description up to 50 characters"
+msgstr "Описание статуса пользователя до 50 символов"
+
+#: apps/account/models.py:44
+msgid "Full description"
+msgstr "Полное описание"
+
+#: apps/account/models.py:45
+msgid "Status business logic"
+msgstr "Бизнес логика статуса"
+
+#: apps/account/models.py:59
+msgid "User division"
+msgstr "Подразделение пользователя"
+
+#: apps/account/models.py:60
+#, fuzzy
+#| msgid "User status"
+msgid "User divisions"
+msgstr "Подразделения пользователей"
+
+#: apps/account/models.py:64
+msgid "User department"
+msgstr "Заголовок"
+
+#: apps/account/models.py:65
+msgid "Brief title of the structure in the company"
+msgstr "Краткий заголовок структуры в компании"
+
+#: apps/account/models.py:71
+msgid "Block"
+msgstr "Блок"
+
+#: apps/account/models.py:72
+msgid "Block name in the company"
+msgstr "Название блока в компании"
+
+#: apps/account/models.py:78
+msgid "Departament"
+msgstr "Департамент"
+
+#: apps/account/models.py:79
+msgid "Departament name in the company"
+msgstr "Название департамента в компании"
+
+#: apps/account/models.py:86
+msgid "Group"
+msgstr "Отдел"
+
+#: apps/account/models.py:87
+msgid "Group name in the company"
+msgstr "Название отдела в компании"
+
+#: apps/account/models.py:94
+msgid "Branch"
+msgstr "Группа"
+
+#: apps/account/models.py:95
+msgid "Branch name in the company"
+msgstr "Название группы в компании"
+
+#: apps/account/models.py:102
+msgid "Description name in the company"
+msgstr "Описание структуры в компании"
+
+#: apps/account/models.py:117
+msgid "User profile"
+msgstr "Профиль пользователя"
+
+#: apps/account/models.py:118
+msgid "Users profiles"
+msgstr "Профили пользователей"
+
+#: apps/account/models.py:136
+msgid "User UUID"
+msgstr "UUID пользователя"
+
+#: apps/account/models.py:137
+msgid "Filled in automatically by the system"
+msgstr "Заполняется автоматически системой"
+
+#: apps/account/models.py:147
+msgid "The user's status in the system"
+msgstr "Статус пользователя в системе"
+
+#: apps/account/models.py:157
+#, fuzzy
+#| msgid "User statuses"
+msgid "User last name"
+msgstr "Статусы пользователей"
+
+#: apps/account/models.py:158 apps/account/models.py:165
+#: apps/account/models.py:172
+msgid "Up to 50 characters"
+msgstr "До 50 символов"
+
+#: apps/account/models.py:164
+#, fuzzy
+#| msgid "User statuses"
+msgid "User first name"
+msgstr "Статусы пользователей"
+
+#: apps/account/models.py:171
+msgid "User middle name"
+msgstr "Отчество пользователя"
+
+#: apps/account/models.py:177
+msgid "User mobile phone number"
+msgstr "Номер мобильного телефона"
+
+#: apps/account/models.py:178
+msgid "Primary contact number"
+msgstr "Основной контактный номер"
+
+#: apps/account/models.py:183
+msgid "User phone number"
+msgstr "Номер телефона"
+
+#: apps/account/models.py:184
+msgid "Any phone number"
+msgstr "Любой номер телефона"
+
+#: apps/account/models.py:189
+msgid "User profile description"
+msgstr "Примечание к профилю"
+
+#: apps/account/models.py:190
+msgid "Additional Information"
+msgstr "Дополнительная информация"
+
+#: apps/account/models.py:199
+msgid "User department in the company"
+msgstr "Отдел пользователя в компании"
+
+#: apps/account/models.py:204
+msgid "Experience start date"
+msgstr "Дата начала работы"
+
+#: apps/account/models.py:209
+msgid "Experience end date"
+msgstr "Дата окончания работы."
+
+#: apps/account/models.py:214
+msgid "Experience description"
+msgstr "Обязанности."
+
+#: apps/account/models.py:220
+#, fuzzy
+#| msgid "User status"
+msgid "User post"
+msgstr "Статус пользователя"
+
+#: apps/account/models.py:221
+msgid "User post in the company"
+msgstr "олжность пользователя"
+
+#: apps/account/models.py:226
+msgid "User info created time"
+msgstr "Время создания"
+
+#: apps/account/models.py:230
+msgid "User info updated time"
+msgstr "Время изменения"

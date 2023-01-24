@@ -2,6 +2,7 @@ from django.contrib import admin
 from apps.account.models import UserStatus, UserDepartment, UserProfile
 from django.utils.safestring import mark_safe
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 
 class UserStatusAdmin(admin.ModelAdmin):
@@ -20,7 +21,7 @@ class UserStatusAdmin(admin.ModelAdmin):
         "title",
         "description",
     )
-    empty_value_display = "-не заполнено-"
+    empty_value_display = _("-not filled-")
 
 
 class UserDepartmentAdmin(admin.ModelAdmin):
@@ -43,7 +44,7 @@ class UserDepartmentAdmin(admin.ModelAdmin):
         "group",
         "branch",
     )
-    empty_value_display = "-не заполнено-"
+    empty_value_display = _("-not filled-")
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -85,7 +86,7 @@ class UserAdmin(admin.ModelAdmin):
         "post",
         "department",
     )
-    empty_value_display = "-не заполнено-"
+    empty_value_display = _("-not filled-")
 
     def user_link(self, obj):
         return mark_safe("<a href='{}'>{}</a>".format(

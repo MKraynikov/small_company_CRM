@@ -13,7 +13,8 @@ fi
 
 python manage.py migrate
 python manage.py collectstatic --no-input --clear
-python3 manage.py loaddata apps/account/fixtures/user_status.json
-python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@admin.local', 'admin')"
+python manage.py loaddata apps/account/fixtures/user_status_ru.json
+python manage.py compilemessages -l en -l ru
+python manage.py shell -c "from django.contrib.auth.models import User; User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@admin.local', 'admin')"
 
 exec "$@"

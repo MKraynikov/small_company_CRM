@@ -23,4 +23,4 @@ if settings.DEBUG:
         document_root=settings.MEDIA_ROOT,
     )
 
-admin.site.site_header = f"Администрирование: {settings.APP_NAME}"
+admin.site.site_header = settings.APP_NAME
