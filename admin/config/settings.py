@@ -32,3 +32,11 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOCALE_PATH = ["locale"]
+
+LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE")
+
+TIME_ZONE = os.environ.get("TIME_ZONE")
+
+PHONE_NUMBERS_REGION = os.environ.get("PHONE_NUMBERS_REGION")

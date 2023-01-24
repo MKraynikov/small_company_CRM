@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import CharField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 from phonenumber_field.modelfields import PhoneNumber, PhoneNumberField
 import os
 import uuid
@@ -16,87 +19,87 @@ def generate_avatar_path(instance, filename: str) -> str:
 
 class UserStatus(models.Model):
     """
-        Модель данных статусов пользователей.
+        User status data model.
     """
     class Meta:
         db_table = "content\".\"user_status"
-        verbose_name = "Статус пользователя"
-        verbose_name_plural = "Статусы пользователей"
+        verbose_name = _("User status")
+        verbose_name_plural = _("User statuses")
 
     status = models.CharField(
         unique=True,
         max_length=50,
-        verbose_name="Статус",
-        help_text="Статус пользователя до 50 символов",
+        verbose_name=_("Status"),
+        help_text=_("User status up to 50 characters"),
     )
     title = models.CharField(
         max_length=50,
-        verbose_name="Описание",
-        help_text="Описание статуса пользователя до 50 символов",
+        verbose_name=_("Description"),
+        help_text=_("User status description up to 50 characters"),
     )
     description = models.TextField(
         max_length=250,
         null=True,
         blank=True,
-        verbose_name="Полное описание",
-        help_text="Бизнес логика статуса.",
+        verbose_name=_("Full description"),
+        help_text=_("Status business logic"),
     )
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
 
 class UserDepartment(models.Model):
     """
-        Модель данных отделов в компании. Заполняется автоматически при
-        добавлении нового пользователя.
+        Data model of departments in the company. Filled in automatically when
+        adding a new user.
     """
     class Meta:
         db_table = "content\".\"user_department"
-        verbose_name = "Подразделение пользователя"
-        verbose_name_plural = "Подразделения пользователей"
+        verbose_name = _("User division")
+        verbose_name_plural = _("User divisions")
 
     title = models.CharField(
         max_length=150,
-        verbose_name="Заголовок",
-        help_text="Краткий заголовок структуры в компании",
+        verbose_name=_("User department"),
+        help_text=_("Brief title of the structure in the company"),
     )
     block = models.CharField(
         max_length=250,
         null=True,
         blank=True,
-        verbose_name="Блок",
-        help_text="Название блока в компании",
+        verbose_name=_("Block"),
+        help_text=_("Block name in the company"),
     )
     department = models.CharField(
         max_length=250,
         null=True,
         blank=True,
-        verbose_name="Департамент",
-        help_text="Название департамента в компании",
+        verbose_name=_("Departament"),
+        help_text=_("Departament name in the company"),
     )
     group = models.CharField(
         max_length=250,
         null=True,
         blank=True,
         db_index=True,
-        verbose_name="Отдел",
-        help_text="Название отдела в компании",
+        verbose_name=_("Group"),
+        help_text=_("Group name in the company"),
     )
     branch = models.CharField(
         max_length=250,
         null=True,
         blank=True,
         db_index=True,
-        verbose_name="Группа",
-        help_text="Название группы в компании",
+        verbose_name=_("Branch"),
+        help_text=_("Branch name in the company"),
     )
     description = models.CharField(
         max_length=150,
         null=True,
         blank=True,
-        verbose_name="Описание",
-        help_text="Описание структуры в компании",
+        verbose_name=_("Description"),
+        help_text=_("Description name in the company"),
     )
 
     def __str__(self):
@@ -105,14 +108,14 @@ class UserDepartment(models.Model):
 
 class UserProfile(models.Model):
     """
-        Модель данных профилей пользователя. Профиль создается автоматически
-        при создании нового пользователя в системе. Связь с моделью User
+        The user profile data model. Profile is created automatically when
+        creating a new user in the system. Communication with the User model
         :model: `auth.User`.
     """
     class Meta:
         db_table = "content\".\"user_profile"
-        verbose_name = "Профиль пользователя"
-        verbose_name_plural = "Профили пользователей"
+        verbose_name = _("User profile")
+        verbose_name_plural = _("Users profiles")
         ordering = ["last_name"]
         unique_together = (
             ("user", "last_name"),
@@ -130,8 +133,8 @@ class UserProfile(models.Model):
         default=uuid.uuid4,
         editable=False,
         unique=True,
-        verbose_name="UUID пользователя",
-        help_text="Заполняется автоматически системой.",
+        verbose_name=_("User UUID"),
+        help_text=_("Filled in automatically by the system"),
     )
     status = models.ForeignKey(
         UserStatus,
@@ -141,7 +144,7 @@ class UserProfile(models.Model):
         blank=True,
         default=1,
         related_name="user_status",
-        verbose_name="Статус пользователя в системе.",
+        verbose_name=_("The user's status in the system"),
     )
     avatar = models.ImageField(
         default="system/user-dummy-img.jpg",
@@ -151,40 +154,40 @@ class UserProfile(models.Model):
         max_length=50,
         null=True,
         blank=True,
-        verbose_name="Фамилия пользователя",
-        help_text="До 50 символов.",
+        verbose_name=_("User last name"),
+        help_text=_("Up to 50 characters"),
     )
     first_name = models.CharField(
         max_length=50,
         null=True,
         blank=True,
-        verbose_name="Имя пользователя",
-        help_text="До 50 символов.",
+        verbose_name=_("User first name"),
+        help_text=_("Up to 50 characters"),
     )
     middle_name = models.CharField(
         max_length=50,
         null=True,
         blank=True,
-        verbose_name="Отчество пользователя",
-        help_text="До 50 символов.",
+        verbose_name=_("User middle name"),
+        help_text=_("Up to 50 characters"),
     )
     mobile_phone = PhoneNumberField(
         null=True,
         blank=True,
-        verbose_name="Номер мобильного телефона",
-        help_text="Основной контактный номер.",
+        verbose_name=_("User mobile phone number"),
+        help_text=_("Primary contact number"),
     )
     phone = PhoneNumberField(
         null=True,
         blank=True,
-        verbose_name="Номер телефона",
-        help_text="Любой номер телефона.",
+        verbose_name=_("User phone number"),
+        help_text=_("Any phone number"),
     )
     description = models.TextField(
         null=True,
         blank=True,
-        verbose_name="Примечание к профилю",
-        help_text="Дополнительная информация",
+        verbose_name=_("User profile description"),
+        help_text=_("Additional Information"),
     )
     department = models.ForeignKey(
         UserDepartment,
@@ -193,38 +196,38 @@ class UserProfile(models.Model):
         null=True,
         blank=True,
         related_name="user_department",
-        verbose_name="Отдел пользователя в компании",
+        verbose_name=_("User department in the company"),
     )
     experience_start = models.DateField(
         null=True,
         blank=True,
-        verbose_name="Дата начала работы",
+        verbose_name=_("Experience start date"),
     )
     experience_now = models.DateField(
         null=True,
         blank=True,
-        verbose_name="Дата окончания работы.",
+        verbose_name=_("Experience end date"),
     )
     experience_description = models.TextField(
         null=True,
         blank=True,
-        verbose_name="Обязанности.",
+        verbose_name=_("Experience description"),
     )
     post = models.CharField(
         max_length=150,
         blank=True,
         null=True,
-        verbose_name="Должность",
-        help_text="Должность пользователя.",
+        verbose_name=_("User post"),
+        help_text=_("User post in the company"),
     )
     created_time = models.DateTimeField(
         auto_now_add=True,
         editable=False,
-        verbose_name="Время создания",
+        verbose_name=_("User info created time"),
     )
     updated_time = models.DateTimeField(
         auto_now=True,
-        verbose_name="Время изменения",
+        verbose_name=_("User info updated time"),
     )
 
     def shot_name(self) -> str:
@@ -244,12 +247,14 @@ class UserProfile(models.Model):
 
     def show_mobile_phone(self) -> str:
         return PhoneNumber.from_string(
-            phone_number=self.mobile_phone, region="RU",
+            phone_number=self.mobile_phone,
+            region=settings.PHONE_NUMBERS_REGION,
         ).as_e164
 
     def show_phone(self) -> str:
         return PhoneNumber.from_string(
-            phone_number=self.phone, region="RU",
+            phone_number=self.phone,
+            region=settings.PHONE_NUMBERS_REGION,
         ).as_e164
 
     def __str__(self) -> str:
