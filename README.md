@@ -2,7 +2,9 @@
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=MKraynikov.small_company_CRM)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-![Waka Readme](https://github.com/MKraynikov/small_company_CRM/workflows/SCC%20Project/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/MKraynikov/small_company_CRM/admin.yml?label=admin_panel)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/MKraynikov/small_company_CRM/backend.yml?label=backend)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/MKraynikov/small_company_CRM/master)
 
 CRM for small companies (up to 50 people). Designed to manage the structure 
 of the company, organize tasks, inventory control, directories and internal
