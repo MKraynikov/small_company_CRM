@@ -1,5 +1,5 @@
 from django.contrib import admin
-from account.models import UserStatus, UserDepartment, UserProfile
+from apps.account.models import UserStatus, UserDepartment, UserProfile
 from django.utils.safestring import mark_safe
 from django.urls import reverse
 

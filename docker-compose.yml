@@ -9,7 +9,7 @@ services:
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - db_data:/var/lib/postgresql/data/
     env_file:
-      - .env
+      - .env_docker
     ports:
       - "5432"
     networks:
@@ -24,7 +24,7 @@ services:
       - static_volume:/home/app/web/static
       - media_volume:/home/app/web/media
     env_file:
-      - .env
+      - .env_docker
     networks:
       - "backend-data"
 
@@ -33,7 +33,7 @@ services:
     expose:
       - 8080
     env_file:
-      - .env
+      - .env_docker
     networks:
       - "backend-data"
 
@@ -49,7 +49,7 @@ services:
       - "xpack.security.enabled=false"
       - "USE_SSL=false"
     env_file:
-      - ./.env
+      - ./.env_docker
     ports:
       - "9200"
       - "9300"
